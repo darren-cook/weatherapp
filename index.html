@@ -7,8 +7,26 @@
     <title>Weather App</title>
     <script src="main.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div id="card-current" class="card">
+        <h1 class="weather-city">Waterbury</h1>
+        <div class="weather-description">
+            <h2 class="weather-temp">69°</h2>
+            <h3 class="weather-description-text">Overcast Clouds</h3>
+        </div>
+        <div class="weather-img">
+            <img class="weather-description-img" src="http://openweathermap.org/img/wn/10n@2x.png" alt="a">
+        </div>
+        <div id="input-container">
+            <input type="text" name="location" id="input-location" placeholder="Los Angeles, California" required>
+            <button id="btn-search">
+                <img src="./images/magnify.png" alt="Search Button">
+            </button>
+        </div>
+    </div>
 </body>
 </html>
