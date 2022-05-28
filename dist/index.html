@@ -12,20 +12,93 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="card-current" class="card">
-        <h1 class="weather-city">Waterbury</h1>
-        <div class="weather-description">
-            <h2 class="weather-temp">69°</h2>
-            <h3 class="weather-description-text">Overcast Clouds</h3>
+    <div id="card-hourly" class="card">
+        <h1 class="card-title">Hourly Forecast</h1>
+        <div class="hourly-container">
+            <div class="hour-container">
+                <h4 class="hour-time">1pm</h4>
+                <img class="hour-img" src="http://openweathermap.org/img/wn/10n@2x.png" alt="a">
+                <h4 class="hour-temp">69°</h4>
+                <h5 class="hour-rain">Rain: 7%</h5>
+            </div>
+            <div class="hour-container">
+                <h4 class="hour-time">1pm</h4>
+                <img class="hour-img" src="http://openweathermap.org/img/wn/10n@2x.png" alt="a">
+                <h4 class="hour-temp">69°</h4>
+                <h5 class="hour-rain">Rain: 7%</h5>
+            </div>
+            <div class="hour-container">
+                <h4 class="hour-time">1pm</h4>
+                <img class="hour-img" src="http://openweathermap.org/img/wn/10n@2x.png" alt="a">
+                <h4 class="hour-temp">69°</h4>
+                <h5 class="hour-rain">Rain: 7%</h5>
+            </div>
+            <div class="hour-container">
+                <h4 class="hour-time">1pm</h4>
+                <img class="hour-img" src="http://openweathermap.org/img/wn/10n@2x.png" alt="a">
+                <h4 class="hour-temp">69°</h4>
+                <h5 class="hour-rain">Rain: 7%</h5>
+            </div>
+            <div class="hour-container">
+                <h4 class="hour-time">1pm</h4>
+                <img class="hour-img" src="http://openweathermap.org/img/wn/10n@2x.png" alt="a">
+                <h4 class="hour-temp">69°</h4>
+                <h5 class="hour-rain">Rain: 7%</h5>
+            </div>
+            <div class="hour-container">
+                <h4 class="hour-time">1pm</h4>
+                <img class="hour-img" src="http://openweathermap.org/img/wn/10n@2x.png" alt="a">
+                <h4 class="hour-temp">69°</h4>
+                <h5 class="hour-rain">Rain: 7%</h5>
+            </div>
         </div>
-        <div class="weather-img">
-            <img class="weather-description-img" src="http://openweathermap.org/img/wn/10n@2x.png" alt="a">
+    </div>
+    <div id="card-now" class="card">
+        <h1 id="now-title" class="card-title">Waterbury</h1>
+        <div class="now-container">
+            <div class="now-img-container">
+                <img id="now-img" src="http://openweathermap.org/img/wn/10n@2x.png" alt="a">
+            </div>
+            <div id="now-data-container">
+                <h2 id="now-temp">69°</h2>
+                <h3 id="now-description">Overcast Clouds</h3>
+                <h3 id="now-rain">Rain: 54%</h3>
+            </div>
+            <div id="now-input-container">
+                <input type="text" name="location" id="input" placeholder="Los Angeles, California" required>
+                <button id="btn-search">
+                    <img src="./images/magnify.png" alt="Search Button">
+                </button>
+            </div>
         </div>
-        <div id="input-container">
-            <input type="text" name="location" id="input-location" placeholder="Los Angeles, California" required>
-            <button id="btn-search">
-                <img src="./images/magnify.png" alt="Search Button">
-            </button>
+    </div>
+    <div id="card-daily" class="card">
+        <h1 class="card-title">Daily Forecast</h1>
+        <div class="daily-container">
+            <div class="day-container">
+                <h3 class="day-time">Monday</h3>
+                <img class="day-img" src="http://openweathermap.org/img/wn/10n@2x.png" alt="a">
+                <h5 class="day-temp">H:69° L:57°</h5>
+                <h5 class="hour-rain">Rain: 7%</h5>
+            </div>
+            <div class="day-container">
+                <h3 class="day-time">Monday</h3>
+                <img class="day-img" src="http://openweathermap.org/img/wn/10n@2x.png" alt="a">
+                <h5 class="day-temp">H:69° L:57°</h5>
+                <h5 class="hour-rain">Rain: 7%</h5>
+            </div>
+            <div class="day-container">
+                <h3 class="day-time">Monday</h3>
+                <img class="day-img" src="http://openweathermap.org/img/wn/10n@2x.png" alt="a">
+                <h5 class="day-temp">H:69° L:57°</h5>
+                <h5 class="hour-rain">Rain: 7%</h5>
+            </div>
+            <div class="day-container">
+                <h3 class="day-time">Monday</h3>
+                <img class="day-img" src="http://openweathermap.org/img/wn/10n@2x.png" alt="a">
+                <h5 class="day-temp">H:69° L:57°</h5>
+                <h5 class="hour-rain">Rain: 7%</h5>
+            </div>
         </div>
     </div>
 </body>
