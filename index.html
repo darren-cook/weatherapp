@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <script src="main.js"></script>
+    <script src="main.js" async></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,9 +73,10 @@
             </div>
             <div id="input-container">
                 <input type="text" name="location" id="input" placeholder="Los Angeles, California" required>
-                <button id="btn-search">
+                <button id="input-search">
                     <img src="./images/magnify.png" alt="Search Button">
                 </button>
+                <div id="loader" class="loader hidden"></div>
             </div>
         </div>
     </div>
