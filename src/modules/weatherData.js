@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import { getLatLon, getWeatherData, getForecastData} from "./weatherAPI";
+import { displayNow, displayHoury, displayDaily } from "./weatherDisplay";
 
 async function getAndDisplayWeather(locationObject){
     const city = locationObject.city;
@@ -11,11 +12,9 @@ async function getAndDisplayWeather(locationObject){
     const hourlyObjectList = handleHourlyData(forecastData);
     const dailyObjectList = handleDailyData(forecastData);
 
-    console.log(nowObject);
-    console.log(hourlyObjectList);
-    console.log(dailyObjectList);
-    console.log(weatherData);
-    console.log(forecastData);
+    displayNow(nowObject);
+    displayHoury(hourlyObjectList);
+    displayDaily(dailyObjectList);
 }
 
 function handleHourlyData(forecastData){
@@ -42,6 +41,7 @@ function handleDailyData(forecastData){
         const day = days[i];
         const rawTime = day[i+1].dt_txt;
         const icon = day[4].weather[0].icon;
+        const weatherDescription = day[4].weather[0].description;
         let maxTemp = -9999;
         let minTemp = 9999;
         let maxRain = 0;
@@ -58,9 +58,8 @@ function handleDailyData(forecastData){
                 maxRain = rain;
             }
         }
-        dailyObjectList.push(dailyFactory(rawTime, icon, maxTemp, minTemp, maxRain));
+        dailyObjectList.push(dailyFactory(rawTime, icon, weatherDescription, maxTemp, minTemp, maxRain));
     }
-
     return dailyObjectList;
 }
 
@@ -79,19 +78,21 @@ const hourlyFactory = (weatherObject) => {
     const time = format(new Date(weatherObject.dt_txt),"haaa");
     const img = `http://openweathermap.org/img/wn/${weatherObject.weather[0].icon}@2x.png`;
     const temp = `${Math.round(weatherObject.main.temp)}°`;
-    const rain = `Rain: ${weatherObject.pop*100}%`
+    const description = weatherObject.weather[0].description;
+    const rain = `Rain: ${weatherObject.pop*100}%`;
 
-    return {time, img, temp, rain}
+    return {time, img, temp, description, rain}
 }
 
-const dailyFactory = (rawTime, icon, maxTemp, minTemp, maxRain) => {
+const dailyFactory = (rawTime, icon, weatherDescription, maxTemp, minTemp, maxRain) => {
     const time = format(new Date(rawTime),"EEEE");
     const img = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+    const description = weatherDescription;
     const highTemp = `H:${Math.round(maxTemp)}°`;
     const lowTemp = `L:${Math.round(minTemp)}°`;
     const rain = `Rain: ${maxRain*100}%`;
 
-    return {time, img, highTemp, lowTemp, rain}
+    return {time, img, description, highTemp, lowTemp, rain}
 }
 
 
