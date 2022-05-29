@@ -21,13 +21,11 @@ async function getAndDisplayWeather(locationObject){
 }
 
 function handleHourlyData(forecastData){
-    document.getElementById("card-hourly").style.backgroundColor = "yellow"
     const forecastDataList = forecastData.list;
     const hourlyObjectList = [];
     for(let i=0; i<6; i++){
         hourlyObjectList.push(hourlyFactory(forecastDataList[i]));
     }
-    document.getElementById("card-hourly").style.backgroundColor = "orange"
     return hourlyObjectList;
 }
 
