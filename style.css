@@ -4,6 +4,7 @@
 2. Card Hourly
 3. Card Now
 4. Card Dayily
+5. Media Querie
 */
 
 /* ----- 1. General ----- */
@@ -15,9 +16,9 @@
 
 body {
     display: flex;
-    gap: 50px;
     align-items: center;
     justify-content: center;
+    gap: 50px;
     width: 100vw;
     height: 100vh;
     background-image: radial-gradient( circle 592px at 48.2% 50%,  rgba(255,255,249,0.6) 0%, rgba(160,199,254,1) 74.6% );
@@ -61,15 +62,16 @@ h5 {
 }
 
 .card {
-    height: 380px;
-    max-height: 380px;
+    flex-shrink: 0;
+    height: 420px;
+    max-height: 420px;
     width: 280px;
     padding: 10px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.93);
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 50px 330px;
+    grid-template-rows: 70px 350px;
 }
 
 .card-title {
@@ -90,6 +92,7 @@ h5 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    align-self: end;
 }
 
 /* ----- 3. Card Now ----- */
@@ -97,7 +100,7 @@ h5 {
 .now-container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 40px;
 }
 
 .now-container > * {
@@ -107,7 +110,7 @@ h5 {
     justify-content: center;
 }
 
-#now-input-container {
+#input-container {
     flex-direction: row;
     align-self: end;
 }
@@ -135,5 +138,28 @@ h5 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    align-self: end;
+}
+
+/* ----- 5. Media Querie ----- */
+
+@media (max-width: 1100px){
+    body {
+        height: min-content;
+        width: 100%;
+        padding: 50px 0px;
+        flex-direction: column;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    #card-now {
+        order: 1;
+    }
+    #card-hourly {
+        order: 2;
+    }
+    #card-daily {
+        order: 3;
+    }
 }
 
