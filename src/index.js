@@ -1,5 +1,6 @@
 import { initial } from "./modules/initial";
 import { handleSearch } from "./modules/weatherSearch";
+console.log("testt")
 
 initial();
 
