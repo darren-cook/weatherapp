@@ -1,11 +1,7 @@
 import { getAndDisplayWeather } from "./weatherData";
 
 function initial(){
-    // const locationObject = checkLocalStorage();
-    const locationObject = {
-        city:"Los Angeles",
-        coordinates:["34.0522", "-118.2436"] 
-    };
+    const locationObject = checkLocalStorage();
     getAndDisplayWeather(locationObject);
 }
 
