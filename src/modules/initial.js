@@ -1,7 +1,9 @@
 import { getAndDisplayWeather } from "./weatherData";
 
 function initial(){
+    console.log("test")
     const locationObject = checkLocalStorage();
+    console.log(locationObject)
     getAndDisplayWeather(locationObject);
 }
 
