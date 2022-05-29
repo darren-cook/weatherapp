@@ -3,18 +3,18 @@ import { getWeatherData, getForecastData} from "./weatherAPI";
 import { displayNow, displayHoury, displayDaily, toggleSkeleton } from "./weatherDisplay";
 
 async function getAndDisplayWeather(locationObject){
-    document.getElementById("card-now").style.backgroundColor = "red"
     const coordinates = locationObject.coordinates;
     const weatherData = await getWeatherData(coordinates);
     const forecastData = await getForecastData(coordinates);
-
+    document.getElementById("card-now").style.backgroundColor = "blue"
     const nowObject = nowFactory(weatherData);
     const hourlyObjectList = handleHourlyData(forecastData);
     const dailyObjectList = handleDailyData(forecastData);
-
+    document.getElementById("card-now").style.backgroundColor = "yellow"
     displayNow(nowObject);
     displayHoury(hourlyObjectList);
     displayDaily(dailyObjectList);
+    document.getElementById("card-now").style.backgroundColor = "purple"
     toggleSkeleton();
 }
 
