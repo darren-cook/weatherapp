@@ -3,6 +3,7 @@ import { getWeatherData, getForecastData} from "./weatherAPI";
 import { displayNow, displayHoury, displayDaily, toggleSkeleton } from "./weatherDisplay";
 
 async function getAndDisplayWeather(locationObject){
+    document.getElementById("card-now").style.backgroundColor = "red"
     const coordinates = locationObject.coordinates;
     const weatherData = await getWeatherData(coordinates);
     const forecastData = await getForecastData(coordinates);

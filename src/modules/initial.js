@@ -1,6 +1,7 @@
 import { getAndDisplayWeather } from "./weatherData";
 
 function initial(){
+    document.getElementById("card-now").style.backgroundColor = "black"
     const locationObject = checkLocalStorage();
     getAndDisplayWeather(locationObject);
 }
