@@ -1,9 +1,8 @@
 import { format } from "date-fns";
-import { getLatLon, getWeatherData, getForecastData} from "./weatherAPI";
+import { getWeatherData, getForecastData} from "./weatherAPI";
 import { displayNow, displayHoury, displayDaily, toggleSkeleton } from "./weatherDisplay";
 
 async function getAndDisplayWeather(locationObject){
-    const city = locationObject.city;
     const coordinates = locationObject.coordinates;
     const weatherData = await getWeatherData(coordinates);
     const forecastData = await getForecastData(coordinates);

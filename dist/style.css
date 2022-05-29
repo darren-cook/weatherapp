@@ -81,7 +81,12 @@ h6 {
 }
 
 .card-title {
-    border-bottom: 1px solid rgb(48, 48, 48);
+    text-align: center;
+    line-height: .9em;
+}
+
+.hidden {
+    display: none;
 }
 
 /* ----- 2. Card Hour ----- */
@@ -129,8 +134,26 @@ h6 {
     padding-left: 5px;
 }
 
-#btn-search:hover {
+#input-search:hover {
     cursor: pointer;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 19px;
+    height: 19px;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }
 
 /* ----- 4. Card Daily ----- */
@@ -182,7 +205,7 @@ h6 {
     border: none;
 }
 
-.skeleton > *{
+.skeleton > * {
     opacity: 0;
 }
 

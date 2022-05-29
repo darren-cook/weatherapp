@@ -2,7 +2,7 @@ import { getAndDisplayWeather } from "./weatherData";
 
 function initial(){
     const locationObject = checkLocalStorage();
-    getAndDisplayWeather(locationObject)
+    getAndDisplayWeather(locationObject);
 }
 
 function checkLocalStorage(){
