@@ -4,7 +4,8 @@
 2. Card Hourly
 3. Card Now
 4. Card Dayily
-5. Media Querie
+5. Responsive
+6. Skeleton Animation
 */
 
 /* ----- 1. General ----- */
@@ -36,6 +37,7 @@ h5,
 h6 {
     color: rgb(48, 48, 48);
     font-family: 'Noto Sans', sans-serif;
+    text-transform: capitalize;
 }
 
 h1 {
@@ -54,11 +56,15 @@ h3 {
 }
 
 h4 {
-    font-size: .9rem;
+    font-size: .8rem;
 }
 
 h5 {
-    font-size: .8rem;
+    font-size: .7rem;
+}
+
+h6 {
+    font-size: .6rem;
 }
 
 .card {
@@ -84,7 +90,7 @@ h5 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    row-gap: 15px;
+    grid-gap: 15px;
 }
 
 .hour-container {
@@ -93,6 +99,9 @@ h5 {
     align-items: center;
     justify-content: center;
     align-self: end;
+    text-align: center;
+    overflow: visible;
+    white-space: nowrap;
 }
 
 /* ----- 3. Card Now ----- */
@@ -130,7 +139,7 @@ h5 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    row-gap: 15px;
+    grid-gap: 15px;
 }
 
 .day-container {
@@ -141,9 +150,9 @@ h5 {
     align-self: end;
 }
 
-/* ----- 5. Media Querie ----- */
+/* ----- 5. Responsive ----- */
 
-@media (max-width: 1100px){
+@media (max-width: 1110px){
     body {
         height: min-content;
         width: 100%;
@@ -163,3 +172,25 @@ h5 {
     }
 }
 
+/* ----- 5. Skeleton Animation ----- */
+/* Copied from Web Dev Simplified */
+/* https://www.youtube.com/watch?v=ZVug65gW-fc */
+
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+    color: rgba(255, 255, 255, 0);
+    border: none;
+}
+
+.skeleton > *{
+    opacity: 0;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+        background-color: hsl(200, 20%, 95%);
+    }
+}
