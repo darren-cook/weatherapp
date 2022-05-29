@@ -8,7 +8,9 @@ async function getAndDisplayWeather(locationObject){
     const forecastData = await getForecastData(coordinates);
     document.getElementById("card-now").style.backgroundColor = "blue"
     const nowObject = nowFactory(weatherData);
+    document.getElementById("card-now").style.backgroundColor = "green"
     const hourlyObjectList = handleHourlyData(forecastData);
+    document.getElementById("card-now").style.backgroundColor = "orange"
     const dailyObjectList = handleDailyData(forecastData);
     document.getElementById("card-now").style.backgroundColor = "yellow"
     displayNow(nowObject);
