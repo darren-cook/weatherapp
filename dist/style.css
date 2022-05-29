@@ -6,7 +6,7 @@
 4. Card Dayily
 */
 
-/* ----- General ----- */
+/* ----- 1. General ----- */
 
 * {
     margin: 0;
@@ -76,7 +76,7 @@ h5 {
     border-bottom: 1px solid rgb(48, 48, 48);
 }
 
-/* ----- Card Hour ----- */
+/* ----- 2. Card Hour ----- */
 
 .hourly-container {
     display: grid;
@@ -92,7 +92,7 @@ h5 {
     justify-content: center;
 }
 
-/* ----- Card Now ----- */
+/* ----- 3. Card Now ----- */
 
 .now-container {
     display: grid;
@@ -121,7 +121,7 @@ h5 {
     cursor: pointer;
 }
 
-/* ----- Card Daily ----- */
+/* ----- 4. Card Daily ----- */
 
 .daily-container {
     display: grid;

@@ -1,7 +1,5 @@
 const apiKey = "f2e559c52b6d79a001f90f630edcc2b9"
 
-// http://openweathermap.org/img/wn/10d@2x.png
-
 async function getLatLon(locationInput){
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${locationInput}&appid=${apiKey}`)
     const locationData = await response.json();
@@ -18,7 +16,7 @@ async function getWeatherData(locationCoordinates){
     return(weatherData);
 }
 
-async function getWeatherForecast(locationCoordinates){
+async function getForecastData(locationCoordinates){
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${locationCoordinates[0]}&lon=${locationCoordinates[1]}&appid=${apiKey}&units=imperial`;
     const response = await fetch(forecastUrl);
     const forecastData = await response.json();
@@ -36,4 +34,4 @@ async function test(){
 }
 
 
-export { test }
+export { getLatLon, getWeatherData, getForecastData }

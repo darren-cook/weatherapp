@@ -1,3 +1,3 @@
-import { test } from "./modules/weatherAPI"
+import { initial } from "./modules/initial";
 
-test();
+initial();
