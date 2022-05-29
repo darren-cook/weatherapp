@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 import { getLatLon, getWeatherData, getForecastData} from "./weatherAPI";
-import { displayNow, displayHoury, displayDaily } from "./weatherDisplay";
+import { displayNow, displayHoury, displayDaily, toggleSkeleton } from "./weatherDisplay";
 
 async function getAndDisplayWeather(locationObject){
     const city = locationObject.city;
@@ -15,6 +15,7 @@ async function getAndDisplayWeather(locationObject){
     displayNow(nowObject);
     displayHoury(hourlyObjectList);
     displayDaily(dailyObjectList);
+    toggleSkeleton();
 }
 
 function handleHourlyData(forecastData){
@@ -41,7 +42,7 @@ function handleDailyData(forecastData){
         const day = days[i];
         const rawTime = day[i+1].dt_txt;
         const icon = day[4].weather[0].icon;
-        const weatherDescription = day[4].weather[0].description;
+        const weatherDescription = day[4].weather[0].main;
         let maxTemp = -9999;
         let minTemp = 9999;
         let maxRain = 0;
@@ -67,7 +68,7 @@ const nowFactory = (weatherObject) => {
     const city = weatherObject.name;
     const img = `http://openweathermap.org/img/wn/${weatherObject.weather[0].icon}@2x.png`;
     const temp = `${Math.round(weatherObject.main.temp)}°`;
-    const description = weatherObject.weather[0].description;
+    const description = weatherObject.weather[0].main;
     const humidity = `Humidity: ${weatherObject.main.humidity}%`;
     const wind = `Wind: ${weatherObject.wind.speed}mph`;
 
@@ -78,7 +79,7 @@ const hourlyFactory = (weatherObject) => {
     const time = format(new Date(weatherObject.dt_txt),"haaa");
     const img = `http://openweathermap.org/img/wn/${weatherObject.weather[0].icon}@2x.png`;
     const temp = `${Math.round(weatherObject.main.temp)}°`;
-    const description = weatherObject.weather[0].description;
+    const description = weatherObject.weather[0].main;
     const rain = `Rain: ${weatherObject.pop*100}%`;
 
     return {time, img, temp, description, rain}

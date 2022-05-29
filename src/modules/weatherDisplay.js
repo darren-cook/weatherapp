@@ -11,16 +11,16 @@ function displayNow(nowObject){
     nowImg.alt = `${nowObject.description} icon`;
     nowTemp.textContent = nowObject.temp;
     nowDescription.textContent = nowObject.description;
-    nowDescription.style.textTransform = "capitalize";
     nowHumidity.textContent = nowObject.nowHumidity;
     nowWind.textContent = nowObject.wind;
 }
 
 function displayHoury(hourlyObjectList){
-    const times = Array.from(document.querySelectorAll(".hour-time"));
-    const imgs = Array.from(document.querySelectorAll(".hour-img"));
-    const temps = Array.from(document.querySelectorAll(".hour-temp"));
-    const rains = Array.from(document.querySelectorAll(".hour-rain"));
+    const times = document.querySelectorAll(".hour-time");
+    const imgs = document.querySelectorAll(".hour-img");
+    const temps = document.querySelectorAll(".hour-temp");
+    const descriptions = document.querySelectorAll(".hour-description");
+    const rains = document.querySelectorAll(".hour-rain");
 
     times.forEach((element, index) =>{
         element.textContent = hourlyObjectList[index].time;
@@ -32,16 +32,20 @@ function displayHoury(hourlyObjectList){
     temps.forEach((element, index)=>{
         element.textContent = hourlyObjectList[index].temp;
     })
+    descriptions.forEach((element, index)=>{
+        element.textContent = hourlyObjectList[index].description;
+    })
     rains.forEach((element, index)=>{
         element.textContent = hourlyObjectList[index].rain;
     })
 }
 
 function displayDaily(dailyObjectList){
-    const times = Array.from(document.querySelectorAll(".day-time"));
-    const imgs = Array.from(document.querySelectorAll(".day-img"));
-    const temps = Array.from(document.querySelectorAll(".day-temp"));
-    const rains = Array.from(document.querySelectorAll(".day-rain"));
+    const times = document.querySelectorAll(".day-time");
+    const imgs = document.querySelectorAll(".day-img");
+    const temps = document.querySelectorAll(".day-temp");
+    const descriptions = document.querySelectorAll(".day-description");
+    const rains = document.querySelectorAll(".day-rain");
 
     times.forEach((element, index) =>{
         element.textContent = dailyObjectList[index].time;
@@ -53,9 +57,20 @@ function displayDaily(dailyObjectList){
     temps.forEach((element, index)=>{
         element.textContent = `${dailyObjectList[index].highTemp} ${dailyObjectList[index].lowTemp}`;
     })
+    descriptions.forEach((element, index)=>{
+        element.textContent = dailyObjectList[index].description;
+    })
     rains.forEach((element, index)=>{
         element.textContent = dailyObjectList[index].rain;
     })
 }
 
-export { displayNow, displayHoury, displayDaily }
+function toggleSkeleton(){
+    const skeletonables = document.querySelectorAll(".skeletonable")
+
+    skeletonables.forEach(element =>{
+        element.classList.toggle("skeleton");
+    })
+}
+
+export { displayNow, displayHoury, displayDaily, toggleSkeleton }
