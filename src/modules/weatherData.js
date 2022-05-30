@@ -85,7 +85,8 @@ const nowFactory = (weatherObject) => {
 
 const hourlyFactory = (weatherObject) => {
     document.getElementById("log").textContent += "start hourly factory -";
-    const time = format(new Date(weatherObject.dt_txt),"haaa");
+    // const time = format(new Date(weatherObject.dt_txt),"haaa");
+    const time = "12am";
     const img = `http://openweathermap.org/img/wn/${weatherObject.weather[0].icon}@2x.png`;
     const temp = `${Math.round(weatherObject.main.temp)}°`;
     const description = weatherObject.weather[0].main;
