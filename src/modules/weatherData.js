@@ -34,7 +34,7 @@ function handleHourlyData(forecastData){
 }
 
 function handleDailyData(forecastData){
-    document.getElementById("log").textContent += "start handle hourly -";
+    document.getElementById("log").textContent += "start daily hourly -";
     const forecastDataList = forecastData.list;
     const dailyObjectList = [];
     const today = format(new Date(), "dd");
@@ -44,7 +44,7 @@ function handleDailyData(forecastData){
     const day3 = forecastDataList.slice(firstDayIndex+16, firstDayIndex+25);
     const day4 = forecastDataList.slice(firstDayIndex+24, firstDayIndex+33);
     const days = [day1, day2, day3, day4];
-    document.getElementById("log").textContent += "before horuly loop -";
+    document.getElementById("log").textContent += "before daily loop -";
     for(let i=0; i<days.length; i++){
         const day = days[i];
         const rawTime = day[i+1].dt_txt;
@@ -68,7 +68,7 @@ function handleDailyData(forecastData){
         }
         dailyObjectList.push(dailyFactory(rawTime, icon, weatherDescription, maxTemp, minTemp, maxRain));
     }
-    document.getElementById("log").textContent += "end hourly data -";
+    document.getElementById("log").textContent += "end daily data -";
     return dailyObjectList;
 }
 
@@ -97,7 +97,8 @@ const hourlyFactory = (weatherObject) => {
 }
 
 const dailyFactory = (rawTime, icon, weatherDescription, maxTemp, minTemp, maxRain) => {
-    const time = format(new Date(rawTime),"EEEE");
+    // const time = format(new Date(rawTime),"EEEE");
+    const time = "Monday";
     const img = `http://openweathermap.org/img/wn/${icon}@2x.png`;
     const description = weatherDescription;
     const highTemp = `H:${Math.round(maxTemp)}°`;
