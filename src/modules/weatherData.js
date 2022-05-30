@@ -7,19 +7,16 @@ async function getAndDisplayWeather(locationObject){
     const weatherData = await getWeatherData(coordinates);
     const forecastData = await getForecastData(coordinates);
 
-    console.log(weatherData.main.temp)
-    console.log(forecastData[0].main.temp)
-    document.getElementById("card-now").style.backgroundColor = "blue"
+    document.getElementById("log").textContent += "Before nowFactory - ";
     const nowObject = nowFactory(weatherData);
-    document.getElementById("card-now").style.backgroundColor = "green"
+    document.getElementById("log").textContent += "before handleHourly -";
     const hourlyObjectList = handleHourlyData(forecastData);
-    document.getElementById("card-now").style.backgroundColor = "orange"
+    document.getElementById("log").textContent += "before handleDaily -";
     const dailyObjectList = handleDailyData(forecastData);
-    document.getElementById("card-now").style.backgroundColor = "yellow"
+    document.getElementById("log").textContent += "before display -";
     displayNow(nowObject);
     displayHoury(hourlyObjectList);
     displayDaily(dailyObjectList);
-    document.getElementById("card-now").style.backgroundColor = "purple"
     toggleSkeleton();
 }
 
