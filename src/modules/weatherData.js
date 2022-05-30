@@ -6,6 +6,9 @@ async function getAndDisplayWeather(locationObject){
     const coordinates = locationObject.coordinates;
     const weatherData = await getWeatherData(coordinates);
     const forecastData = await getForecastData(coordinates);
+
+    console.log(weatherData.main.temp)
+    console.log(forecastData[0].main.temp)
     document.getElementById("card-now").style.backgroundColor = "blue"
     const nowObject = nowFactory(weatherData);
     document.getElementById("card-now").style.backgroundColor = "green"
