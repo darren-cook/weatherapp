@@ -78,7 +78,7 @@ const hourlyFactory = (weatherObject) => {
     const img = `http://openweathermap.org/img/wn/${weatherObject.weather[0].icon}@2x.png`;
     const temp = `${Math.round(weatherObject.main.temp)}°`;
     const description = weatherObject.weather[0].main;
-    const rain = `Rain: ${weatherObject.pop*100}%`;
+    const rain = `Rain: ${Math.round(weatherObject.pop*100)}%`;
 
     return {time, img, temp, description, rain}
 }
@@ -90,7 +90,7 @@ const dailyFactory = (rawTime, icon, weatherDescription, maxTemp, minTemp, maxRa
     const description = weatherDescription;
     const highTemp = `H:${Math.round(maxTemp)}°`;
     const lowTemp = `L:${Math.round(minTemp)}°`;
-    const rain = `Rain: ${maxRain*100}%`;
+    const rain = `Rain: ${Math.round(maxRain*100)}%`;
 
     return {time, img, description, highTemp, lowTemp, rain}
 }
